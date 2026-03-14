@@ -1,15 +1,17 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-const connectDB = async()=>{
-    try {
-        await mongoose.connect(process.env.MONGO_URI as string ,{
-            dbName: "Zomato_clone"
-        });
+dotenv.config(); // ← Add this
 
-        console.log("Connected DB")
-    } catch (error) {
-        console.log(error)
-    }
-}
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI as string, {
+      dbName: "Zomato_clone",
+    });
+    console.log("Connected DB"); // ← Not printing = connectDB never called
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export default connectDB;

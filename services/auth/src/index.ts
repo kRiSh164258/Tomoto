@@ -4,6 +4,7 @@ import connectDB from './config/db.js';
 import authRouter from './routes/auth.js';
 
 dotenv.config();
+connectDB();
 
 const app = express()
 app.use(express.json())
